@@ -1,0 +1,5 @@
+SELECT * FROM user;
+SELECT * FROM (
+   SELECT * FROM yourTableName ORDER BY id DESC LIMIT 10
+);
+
