@@ -478,7 +478,7 @@ CREATE TABLE `supplier` (
 
 LOCK TABLES `supplier` WRITE;
 /*!40000 ALTER TABLE `supplier` DISABLE KEYS */;
-INSERT INTO `supplier` VALUES (1),(2),(3),(4),(5),(6),(7);
+INSERT INTO `supplier` VALUES (6),(7),(8),(9),(10);
 /*!40000 ALTER TABLE `supplier` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -492,6 +492,7 @@ DROP TABLE IF EXISTS `supply`;
 CREATE TABLE `supply` (
   `idSupplier` int NOT NULL,
   `prodID` int NOT NULL,
+  `price` int NOT NULL,
   PRIMARY KEY (`idSupplier`,`prodID`),
   KEY `prodID_idx` (`prodID`),
   CONSTRAINT `suppliedProdID` FOREIGN KEY (`prodID`) REFERENCES `product` (`ID`),
@@ -505,7 +506,11 @@ CREATE TABLE `supply` (
 
 LOCK TABLES `supply` WRITE;
 /*!40000 ALTER TABLE `supply` DISABLE KEYS */;
-INSERT INTO `supply` VALUES (1,555);
+INSERT INTO `supply` VALUES (6, 555, 200);
+INSERT INTO `supply` VALUES (7, 506, 120);
+INSERT INTO `supply` VALUES (8, 507, 300);
+INSERT INTO `supply` VALUES (9, 508, 250);
+INSERT INTO `supply` VALUES (10, 509, 170);
 /*!40000 ALTER TABLE `supply` ENABLE KEYS */;
 UNLOCK TABLES;
 
