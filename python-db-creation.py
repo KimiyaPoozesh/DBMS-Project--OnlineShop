@@ -4,8 +4,8 @@ import mysql.connector
 # نمایش لیست پر فروش ترین محصولات هفته و ماه
 # نمایش ده سفارش اخر کاربر
 # نمایش کاربران مربوط به یک شهر-
-# نمایش لیست سفارش ها
-# نمایش لیست پیشهادات ویژه
+
+
 # نمایش لیست فروشنده های یک ایتمم برای ادمین
 # نمایش تامین کنندگان مربوط به یک شهر
 
@@ -25,4 +25,9 @@ mycuresor = mydb1.cursor()
 #for db in mycuresor:
 #    print(db)
 
+
+# نمایش لیست سفارش ها
 #5 mycuresor.execute("SELECT totalCost, BasketID from basket")
+
+# نمایش لیست پیشهادات ویژه
+#6 mycuresor.execute("SELECT name from product WHERE discount > 15")
