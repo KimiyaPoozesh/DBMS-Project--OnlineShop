@@ -549,6 +549,7 @@ CREATE TABLE `user` (
   `password` varchar(45) DEFAULT NULL,
   `phonenumber` varchar(11) DEFAULT NULL,
   `gender` varchar(45) DEFAULT NULL,
+  `city` varchar(45) DEFAULT NULL,
   `userName` varchar(45) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
@@ -560,7 +561,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'mostafa','mostafa123','9024561189','girl','mosi'),(2,'fatemeh','12kode45','9155487589','girl','fati'),(3,'kimiya','kimkim','9155487779','girl','kim'),(4,'pedram','pedo','9155557589','boy','ped'),(5,'alasti','amir','9995487589','boy','niloufar'),(6,'sonia','sisi','9159987589','girl','xxx'),(7,'mohammad','mmd45','9155487589','boy','mmd'),(8,'ali','rezrez','9155487589','boy','aliz'),(9,'kouroush','btch','9155487589','boy','kouri'),(10,'mahasti','masti','9155487589','girl','dava nemikone'),(11,'sharare','shshsh','9155487589','girl','sharare');
+INSERT INTO `user` VALUES (1,'mostafa','mostafa123','9024561189','girl','mashhad','mosi'),(2,'fatemeh','12kode45','9155487589','girl','mashhad','fati'),(3,'kimiya','kimkim','9155487779','girl','mashhad','kim'),(4,'pedram','pedo','9155557589','boy','tehran','ped'),(5,'alasti','amir','9995487589','boy','tehran','niloufar'),(6,'sonia','sisi','9159987589','girl','tehran','xxx'),(7,'mohammad','mmd45','9155487589','boy','shandiz','mmd'),(8,'ali','rezrez','9155487589','boy','yazd','aliz'),(9,'kouroush','btch','9155487589','boy','rasht','kouri'),(10,'mahasti','masti','9155487589','girl','yazd','dava nemikone'),(11,'sharare','shshsh','9155487589','girl','rasht','sharare');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
