@@ -34,3 +34,6 @@ mycuresor = mydb1.cursor()
 
 # نمایش لیست فروشنده های یک ایتمم برای ادمین
 #7 mycuresor.execute("SELECT S.idSupplier, P.ID FROM supplier as S, product as P WHERE S.idSupplier=P.ID")
+
+# نمایش تامین کنندگان مربوط به یک شهر
+#8 mycuresor.execute("SELECT k.city,GROUP_CONCAT(DISTINCT S.fName) FROM supplier AS S INNER JOIN supplier as P ON S.city = P.city GROUP BY S.city")
