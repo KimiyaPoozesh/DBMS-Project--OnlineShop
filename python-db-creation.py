@@ -4,10 +4,10 @@ import mysql.connector
 # نمایش لیست پر فروش ترین محصولات هفته و ماه
 # نمایش ده سفارش اخر کاربر
 # نمایش کاربران مربوط به یک شهر-
-# نمایش لیست سفارش ها
-# نمایش لیست پیشهادات ویژه
-# نمایش لیست فروشنده های یک ایتمم برای ادمین
-# نمایش تامین کنندگان مربوط به یک شهر
+
+
+
+
 
 mydb1 = mysql.connector.connect(host='localhost',user='root',passwd='123kimiya4567',database='mydb')
 
@@ -25,4 +25,15 @@ mycuresor = mydb1.cursor()
 #for db in mycuresor:
 #    print(db)
 
+
+# نمایش لیست سفارش ها
 #5 mycuresor.execute("SELECT totalCost, BasketID from basket")
+
+# نمایش لیست پیشهادات ویژه
+#6 mycuresor.execute("SELECT name from product WHERE discount > 15")
+
+# نمایش لیست فروشنده های یک ایتمم برای ادمین
+#7 mycuresor.execute("SELECT S.idSupplier, P.ID FROM supplier as S INNER JOIN product as P WHERE S.idSupplier=P.ID")
+
+# نمایش تامین کنندگان مربوط به یک شهر
+#8 mycuresor.execute("SELECT k.city,GROUP_CONCAT(DISTINCT S.fName) FROM supply AS Su INNER JOIN supplier as Sr ON Su.city = SR.city GROUP BY S.city")
