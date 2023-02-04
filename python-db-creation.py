@@ -6,7 +6,7 @@ import mysql.connector
 # نمایش کاربران مربوط به یک شهر-
 
 
-mydb1 = mysql.connector.connect(host='localhost',user='root',passwd='123kimiya4567',database='mydb')
+mydb1 = mysql.connector.connect(host='localhost',user='root',passwd='password',database='mydb')
 
 mycuresor = mydb1.cursor()
 #1 mycuresor.execute("SELECT userName,fName from user")
