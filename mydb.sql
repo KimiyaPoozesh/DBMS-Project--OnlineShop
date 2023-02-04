@@ -119,7 +119,7 @@ CREATE TABLE `basketitem` (
 
 LOCK TABLES `basketitem` WRITE;
 /*!40000 ALTER TABLE `basketitem` DISABLE KEYS */;
-INSERT INTO `basketitem` VALUES (100,'1',1,555),(400,'2',1,50),(400,'2',3,506),(400,'2',4,50),(400,'2',5,555),(400,'2',6,506),(400,'2',7,50);
+INSERT INTO `basketitem` VALUES (100,'1',1,555),(400,'2',2,506);
 /*!40000 ALTER TABLE `basketitem` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -342,8 +342,7 @@ CREATE TABLE `factor` (
 
 LOCK TABLES `factor` WRITE;
 /*!40000 ALTER TABLE `factor` DISABLE KEYS */;
-INSERT INTO `factor` VALUES (100,'2022-12-01',1),(101,'2022-12-11',2),(102,'2022-01-01',3),(103,'2022-12-26',4),(104,'2022-12-22',5),(105,'2022-12-11',6),(106,'2022-12-191',7)
-,(107,'2022-05-02',8),(108,'2022-12-11',9),(109,'2022-06-01',10),(110,'2023-12-01',11),(111,'2022-12-19',1);
+INSERT INTO `factor` VALUES (1,'2022-12-01',1);
 /*!40000 ALTER TABLE `factor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -508,6 +507,7 @@ CREATE TABLE `supply` (
 LOCK TABLES `supply` WRITE;
 /*!40000 ALTER TABLE `supply` DISABLE KEYS */;
 INSERT INTO `supply` VALUES (6, 555, 200);
+INSERT INTO `supply` VALUES (7, 555, 120);
 INSERT INTO `supply` VALUES (7, 506, 120);
 INSERT INTO `supply` VALUES (8, 507, 300);
 INSERT INTO `supply` VALUES (9, 508, 250);
@@ -555,7 +555,6 @@ CREATE TABLE `user` (
   `password` varchar(45) DEFAULT NULL,
   `phonenumber` varchar(11) DEFAULT NULL,
   `gender` varchar(45) DEFAULT NULL,
-  `city` varchar(45) DEFAULT NULL,
   `userName` varchar(45) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
@@ -567,7 +566,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'mostafa','mostafa123','9024561189','girl','mashhad','mosi'),(2,'fatemeh','12kode45','9155487589','girl','mashhad','fati'),(3,'kimiya','kimkim','9155487779','girl','mashhad','kim'),(4,'pedram','pedo','9155557589','boy','tehran','ped'),(5,'alasti','amir','9995487589','boy','tehran','niloufar'),(6,'sonia','sisi','9159987589','girl','tehran','xxx'),(7,'mohammad','mmd45','9155487589','boy','shandiz','mmd'),(8,'ali','rezrez','9155487589','boy','yazd','aliz'),(9,'kouroush','btch','9155487589','boy','rasht','kouri'),(10,'mahasti','masti','9155487589','girl','yazd','dava nemikone'),(11,'sharare','shshsh','9155487589','girl','rasht','sharare');
+INSERT INTO `user` VALUES (1,'mostafa','mostafa123','9024561189','girl','mosi'),(2,'fatemeh','12kode45','9155487589','girl','fati'),(3,'kimiya','kimkim','9155487779','girl','kim'),(4,'pedram','pedo','9155557589','boy','ped'),(5,'alasti','amir','9995487589','boy','niloufar'),(6,'sonia','sisi','9159987589','girl','xxx'),(7,'mohammad','mmd45','9155487589','boy','mmd'),(8,'ali','rezrez','9155487589','boy','aliz'),(9,'kouroush','btch','9155487589','boy','kouri'),(10,'mahasti','masti','9155487589','girl','dava nemikone'),(11,'sharare','shshsh','9155487589','girl','sharare');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
