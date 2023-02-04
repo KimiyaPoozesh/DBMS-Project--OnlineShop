@@ -259,7 +259,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES (1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9),(10,10),(11,11);
+INSERT INTO `customer` VALUES (11,1),(12,2),(13,3),(14,4),(15,5);
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -478,7 +478,7 @@ CREATE TABLE `supplier` (
 
 LOCK TABLES `supplier` WRITE;
 /*!40000 ALTER TABLE `supplier` DISABLE KEYS */;
-INSERT INTO `supplier` VALUES (1),(2),(3),(4),(5),(6),(7);
+INSERT INTO `supplier` VALUES (6),(7),(8),(9),(10);
 /*!40000 ALTER TABLE `supplier` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -492,6 +492,7 @@ DROP TABLE IF EXISTS `supply`;
 CREATE TABLE `supply` (
   `idSupplier` int NOT NULL,
   `prodID` int NOT NULL,
+  `price` int NOT NULL,
   PRIMARY KEY (`idSupplier`,`prodID`),
   KEY `prodID_idx` (`prodID`),
   CONSTRAINT `suppliedProdID` FOREIGN KEY (`prodID`) REFERENCES `product` (`ID`),
@@ -505,7 +506,12 @@ CREATE TABLE `supply` (
 
 LOCK TABLES `supply` WRITE;
 /*!40000 ALTER TABLE `supply` DISABLE KEYS */;
-INSERT INTO `supply` VALUES (1,555);
+INSERT INTO `supply` VALUES (6, 555, 200);
+INSERT INTO `supply` VALUES (7, 555, 120);
+INSERT INTO `supply` VALUES (7, 506, 120);
+INSERT INTO `supply` VALUES (8, 507, 300);
+INSERT INTO `supply` VALUES (9, 508, 250);
+INSERT INTO `supply` VALUES (10, 509, 170);
 /*!40000 ALTER TABLE `supply` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -560,7 +566,13 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'mostafa','mostafa123','9024561189','girl','mosi'),(2,'fatemeh','12kode45','9155487589','girl','fati'),(3,'kimiya','kimkim','9155487779','girl','kim'),(4,'pedram','pedo','9155557589','boy','ped'),(5,'alasti','amir','9995487589','boy','niloufar'),(6,'sonia','sisi','9159987589','girl','xxx'),(7,'mohammad','mmd45','9155487589','boy','mmd'),(8,'ali','rezrez','9155487589','boy','aliz'),(9,'kouroush','btch','9155487589','boy','kouri'),(10,'mahasti','masti','9155487589','girl','dava nemikone'),(11,'sharare','shshsh','9155487589','girl','sharare');
+INSERT INTO `user` VALUES (1,'mostafa','mostafa123','9024561189','girl','mosi'),(2,'fatemeh','12kode45','9155487589','girl','fati')
+,(3,'kimiya','kimkim','9155487779','girl','kim'),(4,'pedram','pedo','9155557589','boy','ped'),(5,'alasti','amir','9995487589','boy','niloufar')
+,(6,'sonia','sisi','9159987589','girl','xxx'),(7,'mohammad','mmd45','9155487589','boy','mmd'),(8,'ali','rezrez','9155487589','boy','aliz'),
+(9,'kouroush','btch','9155487589','boy','kouri'),(10,'mahasti','masti','9155487589','girl','dava nemikone')
+,(11,'sharare','shshsh','9155487589','girl','sharare'),(12,'zahra','zar','9155487578','girl','zzz')
+,(13,'ramezan','aliii','9155487689','boy','tttt'),(14,'yaser','yasss','9155876589','boy','8765'),
+(15,'ayda','aaaa','915587589','girl','dddd');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

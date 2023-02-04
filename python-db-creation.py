@@ -4,9 +4,12 @@ import mysql.connector
 # نمایش لیست پر فروش ترین محصولات هفته و ماه
 # نمایش ده سفارش اخر کاربر
 # نمایش کاربران مربوط به یک شهر-
+# نمایش لیست سفارش ها
+# نمایش لیست پیشهادات ویژه
+# نمایش لیست فروشنده های یک ایتمم برای ادمین
+# نمایش تامین کنندگان مربوط به یک شهر
 
-
-mydb1 = mysql.connector.connect(host='localhost',user='root',passwd='123kimiya4567',database='mydb')
+mydb1 = mysql.connector.connect(host='localhost',user='root',passwd='fatem928',database='mydb')
 
 mycuresor = mydb1.cursor()
 #1 mycuresor.execute("SELECT userName,fName from user")
@@ -21,3 +24,5 @@ mycuresor = mydb1.cursor()
 #mycuresor.execute("SELECT DISTINCT f.date, p.name FROM factor as f,basketitem as i ,basket as b,product as p WHERE date>='2022-12-01' AND date<'2023-01-01' AND f.BasketID=b.BasketID AND b.BasketID=i.BasketID AND i.ProdID=p.ID")
 #for db in mycuresor:
 #    print(db)
+
+#5 mycuresor.execute("SELECT totalCost, BasketID from basket")
