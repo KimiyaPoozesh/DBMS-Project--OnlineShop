@@ -4,17 +4,17 @@ import mysql.connector
 
 
 app = FastAPI()
-mydb1 = mysql.connector.connect(host='localhost',user='root',passwd='123kimiya4567',database='mydb')
+mydb1 = mysql.connector.connect(host='localhost',user='root',passwd='password',database='mydb')
 a=[]
 
 mycuresor = mydb1.cursor()
 
 
 print("hello, choose a number for the following queries: ")
-print("1. Display Users lists-")
-print("2. Display the list of the best-selling products of the week and month")
-print("3. Display the last ten orders of the user")
-print("4. Display users from the same city")
+print("1. Display average sell amount-")
+print("2. Display the sales amount during this month")
+print("3. Display comments for the product")
+print("4. Display supplier who has the cheapest price")
 
 
 
@@ -42,19 +42,18 @@ def index(choice : Choice):
     a.clear()
     if choice.choice == 1:
         print("here")
-        r=executor("SELECT userName,fName from user",cursor)
+        r=executor("SELECT avg(totalCost) AS avgcost FROM basket",cursor)
         cursor.close()
     elif choice.choice ==2:
-        r=executor(" SELECT f.date, p.name FROM factor as f,basketitem as i ,basket as b,product as p WHERE f.date>='2020-12-01' AND f.date<='2023-01-01' AND f.BasketID=b.BasketID AND b.BasketID=i.BasketID AND i.ProdID=p.ID",cursor)
+        r=executor2("SELECT product.name, factor.date, ProdID, basketitem.BasketID FROM basketitem JOIN factor ON basketitem.BasketID = factor.BasketID JOIN product ON product.ID = basketitem.ProdID WHERE product.name = %s AND factor.date < curdate() AND factor.date > SUBDATE(curdate(), INTERVAL 01 MONTH);", choice.name, cursor)
         cursor.close()
 
     elif choice.choice == 3:
-        r=executor2("""SELECT fName,p.name from product as p, customer as c,user as u,basket as b,basketitem as bi WHERE.\
-        u.fName = %s AND bi.BasketID = b.BasketID AND b.BasketID = c.basketID AND c.customerID=u.ID""",choice.name,cursor)
+        r=executor2("""SELECT product.name, text,prodID FROM comment join product on comment.prodID = product.ID WHERE product.name = %s""", choice.name, cursor)
         cursor.close()
 
     elif choice.choice==4:
-        r=executor(" SELECT k.city,GROUP_CONCAT(DISTINCT k.fName) FROM user AS k INNER JOIN user as d ON k.city = d.city GROUP BY k.city",cursor)
+        r=executor2(" SELECT DISTINCT fname, price, product.name, supply.prodID FROM supply JOIN supplier ON supply.idSupplier = supplier.idSupplier JOIN user ON supplier.idSupplier = user.ID JOIN product ON supply.ProdID = product.ID JOIN (SELECT idSupplier, prodID, min(price) as min_price FROM supply GROUP BY prodID) AS Subquery ON supply.idSupplier = Subquery.idSupplier AND supply.price = Subquery.min_price WHERE product.name = %s", choice.name, cursor)
         cursor.close()
 
     for db in r:
