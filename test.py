@@ -45,7 +45,7 @@ def index(choice : Choice):
         r=executor("SELECT userName,fName from user",cursor)
         cursor.close()
     elif choice.choice ==2:
-        r=executor(" SELECT k.city,GROUP_CONCAT(DISTINCT k.fName) FROM user AS k INNER JOIN user as d ON k.city = d.city GROUP BY k.city",cursor)
+        r=executor(" SELECT f.date, p.name FROM factor as f,basketitem as i ,basket as b,product as p WHERE f.date>='2020-12-01' AND f.date<='2023-01-01' AND f.BasketID=b.BasketID AND b.BasketID=i.BasketID AND i.ProdID=p.ID",cursor)
         cursor.close()
 
     elif choice.choice == 3:
