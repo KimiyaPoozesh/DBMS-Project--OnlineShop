@@ -4,7 +4,7 @@ import mysql.connector
 
 
 app = FastAPI()
-mydb1 = mysql.connector.connect(host='localhost',user='root',passwd='12345',database='mydb')
+mydb1 = mysql.connector.connect(host="localhost",user="root",password="password",database="project")
 a=[]
 
 mycuresor = mydb1.cursor()
